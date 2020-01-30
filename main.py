@@ -3,9 +3,13 @@ from tensorflow.keras.layers import Dense
 import numpy as np 
 import tensorflow as tf
 import sys
+
+import os
+repo_path = os.path.dirname(os.path.abspath(__file__))
+test_output_path1 = repo_path + "/Software1.txt"
+test_output_path2 = repo_path + "/Software2.txt"
 model_path = "model/saved_model.h5"
-test_output_path1 = "software1.txt"
-test_output_path2 = "software2.txt"
+
 
 def get_test_data():
 	train_input = []
