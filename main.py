@@ -5,6 +5,7 @@ import tensorflow as tf
 import sys
 
 import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 repo_path = os.path.dirname(os.path.abspath(__file__))
 test_output_path1 = repo_path + "/Software1.txt"
 test_output_path2 = repo_path + "/Software2.txt"
@@ -39,13 +40,13 @@ def software1(test_input_path):
 	output = []
 	for i in range(nums.shape[0]):
 		if nums[i] % 3 == 0 and nums[i] % 5 == 0:
-			output.append(str(nums[i]) + "\n")
+			# output.append(str(nums[i]) + "\n")
 			output.append("fizzbuzz" + "\n")
 		elif nums[i] % 3 == 0:
-			output.append(str(nums[i]) + "\n")
+			# output.append(str(nums[i]) + "\n")
 			output.append("fizz" + "\n")
 		elif nums[i] % 5 == 0:
-			output.append(str(nums[i]) + "\n")
+			# output.append(str(nums[i]) + "\n")
 			output.append("buzz" + "\n")
 		else:
 			output.append(str(nums[i]) + "\n")
@@ -89,7 +90,6 @@ def software2(test_input_path):
 
 	output = []
 	for i in range(test_input.shape[0]):
-		output.append(str(nums[i]) + "\n")
 		j = np.argmax(predictions[i])
 		if j == 0:
 			output.append("fizzbuzz" + "\n")
@@ -98,7 +98,7 @@ def software2(test_input_path):
 		elif j == 2:
 			output.append("buzz" + "\n")
 		else:
-			continue
+			output.append(str(nums[i]) + "\n")
 
 	with open(test_output_path2, 'w') as f2:
 		for item in output:
